@@ -1,7 +1,7 @@
 const randomWordElement = document.querySelector('.randomWord');
 // const pointsElement = document.querySelector('.points > span');
 // const pointsValue = Number(pointsElement.innerHTML);
-const data = ['Futbolas', 'Krepsinis', 'Tenisas'];
+const data = ['Futbolas', 'Krepsinis', 'Tenisas', 'Rankinis', 'Boksas'];
 let selectedWord = '';
 
 // Functions
