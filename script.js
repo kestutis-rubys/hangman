@@ -2,6 +2,7 @@ const randomWordElement = document.querySelector('.randomWord');
 let pointsValue = document.querySelector('.number');
 const answerElement = document.querySelector('.answer');
 const data = ['Football', 'Basketball', 'Tennis', 'Boxing', 'Valleyball'];
+const hiddenWord = [];
 let selectedWord = '';
 let points;
 let number = 0;
@@ -16,6 +17,7 @@ const showRandomWord = () => {
   const newWord = word.toLowerCase().split('');
   for (item of newWord) {
     randomWordElement.innerHTML += `<span> _ </span>`;
+    hiddenWord.push('_');
   }
   selectedWord = newWord;
   return selectedWord;
@@ -26,6 +28,8 @@ const checkLetter = (letter) => {
   selectedWord.forEach((item, i) => {
     if (item === letter) {
       letters[i].textContent = ` ${letter.toUpperCase()} `;
+      hiddenWord[i] = letter;
+      checkWord(hiddenWord);
     } else {
       number++;
     }
@@ -46,6 +50,12 @@ const changePointsValue = (number) => {
   }
 };
 
+const checkWord = (hiddenWord) => {
+  if (JSON.stringify(selectedWord) === JSON.stringify(hiddenWord)) {
+    answerElement.textContent = 'Hell yeah, You win!';
+  }
+};
+
 // Events
 // Load random word
 document.addEventListener('DOMContentLoaded', showRandomWord());
@@ -58,5 +68,7 @@ document.addEventListener('keypress', (e) => {
   minusPoints = 0;
   const keyValue = e.key;
   checkLetter(keyValue);
+  // console.log(hiddenWord);
+  // console.log(selectedWord);
 });
 // Read enter key
