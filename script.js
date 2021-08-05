@@ -39,6 +39,7 @@ const showRandomWord = () => {
   const DataLength = data.length;
   const randomNumber = Math.floor(Math.random() * DataLength);
   const word = data[randomNumber];
+  console.log(word);
   const newWord = word.toLowerCase().split('');
   for (item of newWord) {
     randomWordElement.innerHTML += `<span> _ </span>`;
@@ -95,19 +96,22 @@ const checkWord = (hiddenWord) => {
   }
 };
 
+const readKey = (e) => {
+  points = Number(pointsValue.innerHTML);
+  number = 0;
+  minusPoints = 0;
+  const keyValue = e.key;
+  checkLetter(keyValue);
+  console.log(e.key);
+};
+
 // Events
 // Load random word
 document.addEventListener('DOMContentLoaded', showRandomWord());
 // Load random word
 
 // Read enter key
-document.addEventListener('keypress', (e) => {
-  points = Number(pointsValue.innerHTML);
-  number = 0;
-  minusPoints = 0;
-  const keyValue = e.key;
-  checkLetter(keyValue);
-});
+document.addEventListener('keydown', (e) => readKey(e));
 // Read enter key
 
 buttonElement.addEventListener('click', () => {
