@@ -9,17 +9,66 @@ body {
   align-items: center;
   justify-content: space-around;
   height: 100vh;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Gloria Hallelujah', cursive;
 }
-p,
+div,
 .randomWord,
 .points {
-  width: 33%;
+  width: 100%;
 }
 
 div > span {
   display: inline-block;
   padding: 10px;
 }
-*/ .points {
+.points {
   padding: 15px;
+}
+
+.greetings {
+  font-size: 20px;
+}
+
+span {
+  font-size: 35px;
+}
+
+img {
+  width: 200px;
+  height: auto;
+}
+.red {
+  color: #ff0000;
+}
+.green {
+  color: greenyellow;
+}
+
+.letters {
+  height: 50px;
+  font-size: 25px;
+}
+.answer {
+  height: 50px;
+}
+
+button {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 0;
+  color: #000;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+.showBtn {
+  display: block;
 }
