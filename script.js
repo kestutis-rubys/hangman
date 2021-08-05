@@ -60,6 +60,7 @@ let minusPoints = 0;
 const images = ['2.png', '3.png', '4.png', '5.png', '6.png', '7.png'];
 const imgElement = document.querySelector('img');
 let imgIndex = 0;
+let stoped = 0;
 
 // Functions
 
@@ -67,7 +68,7 @@ const showRandomWord = () => {
   const DataLength = data.length;
   const randomNumber = Math.floor(Math.random() * DataLength);
   const word = data[randomNumber];
-  console.log(word);
+  // console.log(word);
   const newWord = word.toLowerCase().split('');
   for (item of newWord) {
     randomWordElement.innerHTML += `<span> _ </span>`;
@@ -113,6 +114,7 @@ const changePointsValue = (number) => {
     answerElement.innerHTML = 'Unfortunately, you are out of lives';
     answerElement.classList.add('red');
     buttonElement.classList.add('showBtn');
+    stopAddNewLetters();
   }
 };
 
@@ -121,22 +123,26 @@ const checkWord = (hiddenWord) => {
     answerElement.innerHTML = 'Congratulations, you survived!';
     answerElement.classList.add('green');
     buttonElement.classList.add('showBtn');
+    stopAddNewLetters();
   }
 };
 
 const readKey = (e) => {
-  points = Number(pointsValue.innerHTML);
-  number = 0;
-  minusPoints = 0;
-  const keyValue = e.key;
-  alphabet.forEach((item) => {
-    if (item === keyValue) {
-      checkLetter(keyValue);
-    }
-    // } else {
-    //   answerElement.innerHTML = 'Please use just latin alphabet letters';
-    // }
-  });
+  if (stoped <= 0) {
+    points = Number(pointsValue.innerHTML);
+    number = 0;
+    minusPoints = 0;
+    const keyValue = e.key;
+    alphabet.forEach((item) => {
+      if (item === keyValue) {
+        checkLetter(keyValue);
+      }
+    });
+  }
+};
+
+const stopAddNewLetters = () => {
+  return (stoped = 1);
 };
 
 // Events
@@ -148,7 +154,9 @@ document.addEventListener('DOMContentLoaded', showRandomWord());
 document.addEventListener('keydown', (e) => readKey(e));
 // Read enter key
 
+// press "try again" button
 buttonElement.addEventListener('click', () => {
   location.reload();
   buttonElement.classList.remove('showBtn');
 });
+// press "try again" button
