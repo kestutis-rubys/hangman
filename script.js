@@ -35,7 +35,7 @@ const checkLetter = (letter) => {
 };
 
 const changePointsValue = (number) => {
-  if (points !== 0) {
+  if (points > 1) {
     if (number === 0) {
       points--;
       pointsValue.textContent = points;
