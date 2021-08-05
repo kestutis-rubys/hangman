@@ -52,7 +52,7 @@ const changePointsValue = (number) => {
 
 const checkWord = (hiddenWord) => {
   if (JSON.stringify(selectedWord) === JSON.stringify(hiddenWord)) {
-    answerElement.textContent = 'Hell yeah, You win!';
+    answerElement.textContent = 'Congratulations, you survived!';
   }
 };
 
