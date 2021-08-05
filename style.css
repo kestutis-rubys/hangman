@@ -4,20 +4,22 @@
   box-sizing: border-box;
   text-align: center;
 }
-/* body {
+body {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
   height: 100vh;
 }
-p {
-  display: block;
-  width: 30%;
+p,
+.randomWord,
+.points {
+  width: 33%;
 }
+
 div > span {
   display: inline-block;
   padding: 10px;
-} */
-.points {
+}
+*/ .points {
   padding: 15px;
 }
